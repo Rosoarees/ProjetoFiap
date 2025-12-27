@@ -1,18 +1,61 @@
-## Getting Started
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Sistema de Gerenciamento de Produtos - Nano
 
-## Folder Structure
+Este projeto é uma aplicação Desktop em Java desenvolvida para atender à demanda de uma microempresa de comércio eletrônico. O sistema permite o gerenciamento completo (cadastro, consulta e alteração) de produtos e suas respectivas categorias.
 
-The workspace contains two folders by default, where:
+Funcionalidades
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+O sistema conta com um menu interativo gráfico que oferece as seguintes operações:
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+Cadastrar Categoria: Cria novas categorias para organizar os produtos.
+Cadastrar Produto: Registra produtos vinculando-os a uma categoria existente, com validação de dados (preço, nome, descrição).
+Alterar Produto: Permite editar os dados de um produto já cadastrado.
+Consultar por ID: Busca rápida de um produto específico pelo seu identificador único.
+Consultar por Categoria: Lista todos os produtos pertencentes a uma determinada categoria.
+Persistência em Memória: Utiliza o padrão *Repository* com `ArrayList` para armazenar os dados durante a execução.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+Tecnologias Utilizadas
 
-## Dependency Management
+Linguagem: Java (JDK 17+)
+Interface Gráfica (GUI): Java Swing (`JOptionPane`)
+Arquitetura: MVC (Model-View-Controller)
+IDE: Visual Studio Code
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+Estrutura do Projeto (Arquitetura MVC)
+
+O projeto foi organizado seguindo boas práticas de separação de responsabilidades:
+
+
+src/br/com/fiap/nano/produtos/
+│
+├──  App.java                  # Classe Principal (Controller/Entry Point)
+│
+├──  model/                    # Modelos de Dados (Entidades)
+│   ├── Categoria.java
+│   └── Produto.java
+│
+├──  repository/               # Acesso a Dados (Simulação de Banco de Dados)
+│   ├── CategoriaCollectionRepository.java
+│   └── ProdutoCollectionRepository.java
+│
+└── view/                     # Camada de Visualização (Telas)
+    ├── CategoriaView.java
+    ├── Opcao.java              # Enum para controle do Menu
+    ├── OpcaoView.java
+    └── ProdutoView.java
+
+
+
+
+Aprendizado
+
+Este projeto foi desenvolvido com foco no aprendizado de conceitos fundamentais da linguagem Java e Orientação a Objetos:
+Encapsulamento: Uso de modificadores de acesso (private) e métodos Getters/Setters.
+Polimorfismo e Sobrescrita: Uso de @Override nos métodos toString, equals e hashCode.
+Coleções: Manipulação de List e ArrayList.
+Streams API: Uso de filtros e buscas otimizadas nas listas.
+Tratamento de Exceções: Blocos try-catch para evitar erros de entrada do usuário.
+Organização das opções do menu.
+
+Desenvolvido por Ronaldo Soares Pinto durante estudos de Java e Orientação a Objetos.
+
